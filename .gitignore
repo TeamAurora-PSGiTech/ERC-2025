@@ -51,3 +51,9 @@ COLCON_IGNORE
 .vscode
 .devcontainer
 __pycache__/
+
+# vcs import repos
+/behaviortree_ros2
+/husarion_controllers
+/husarion_gz_worlds
+/ros_components_description
