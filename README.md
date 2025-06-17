@@ -15,7 +15,7 @@ This fork contains the complete codebase for **ERC-2025** development.
 Clone this repo into your ROS workspace:
 
 ```bash
-git clone https://github.com/yourusername/husarion_ugv_ros.git
+git clone https://github.com/TeamAurora-PSGiTech/ERC-2025.git
 ```
 
 ### 2. Configure Environment
@@ -54,4 +54,30 @@ source install/setup.bash
 |-----------------|----------------------------------------|
 | `/husarion_ugv_*` | Forked directories from upstream repo  |
 | `/models`       | Contains all the ML models used        |
+| `/autonomous` | Contains scripts and launch files for autonomous nav |
+---
+
+## Autonomous Mode
+
+Step 0: Build the package
+```bash
+colcon build --packages-select autonomous --symlink-install
+```
+
+Step 1: Start simulation using the command
+```bash
+ros2 launch husarion_ugv_gazebo simulation.launch.py use_rviz:=False
+```
+
+Step 2: launch map and rviz with the command
+```bash
+ros2 launch autonomous nav.launch.py
+```
+
+Step 3: Launch navigation with
+```bash
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true params_file:=autonomous/config/nav2_params.yaml
+```
+Step 4: Set goal pose and see navigating
+
 ---

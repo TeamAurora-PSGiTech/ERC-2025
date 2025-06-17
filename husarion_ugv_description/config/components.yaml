@@ -1,21 +1,29 @@
-# By default Husarion UGV is loaded without any components.
+components:
 
-components: []
+  - type: CAM06
+    name: camera
+    parent_link: mount_link
+    xyz: "0.2 0.0 0.1"
+    rpy: "0.0 0.0 0.0"
+    device_namespace: front_cam
 
-# If you want to add for example DEV02, LDR06 and CAM01 to your robot look at the example below:
+  - type: CAM06
+    name: camera
+    parent_link: mount_link
+    xyz: "-0.2 0.0 0.1"
+    rpy: "0.0 0.0 3.1416"
+    device_namespace: back_cam
 
-# components:
-#   - type: DEV02
-
-#   - type: LDR06
-#     parent_link: mount_link
-#     xyz: 0.0 -0.1 0.0
-#     rpy: 0.0 0.0 0.0
-#     device_namespace: second_lidar
-
-#   - type: CAM01
-#     name: camera
-#     parent_link: mount_link
-#     xyz: 0.1 0.0 0.0
-#     rpy: 0.0 0.0 0.0
-#     device_namespace: front_cam
+  - type: CAM06
+    name: camera
+    parent_link: mount_link
+    xyz: "0.0 0.2 0.1"
+    rpy: "0.0 0.0 1.5708"
+    device_namespace: left_cam
+    
+  - type: CAM06
+    name: camera
+    parent_link: mount_link
+    xyz: "0.0 -0.2 0.1"
+    rpy: "0.0 0.0 -1.5708"
+    device_namespace: right_cam
