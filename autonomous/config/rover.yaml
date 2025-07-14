@@ -1,0 +1,36 @@
+components: 
+  - type: CAM01
+    name: front_camera
+    parent_link: mount_link
+    xyz: 0.1 0.0 0.2
+    rpy: 0.0 0.0 0.0          # Facing forward
+    device_namespace: front_cam
+
+  - type: CAM01
+    name: right_camera
+    parent_link: mount_link
+    xyz: 0.0 -0.1 0.2
+    rpy: 0.0 0.0 -1.5708      # -90° yaw → Facing right
+    device_namespace: right_cam
+
+  - type: CAM01
+    name: left_camera
+    parent_link: mount_link
+    xyz: 0.0 0.1 0.2
+    rpy: 0.0 0.0 1.5708       # +90° yaw → Facing left
+    device_namespace: left_cam
+
+  - type: CAM01
+    name: back_camera
+    parent_link: mount_link
+    xyz: -0.1 0.0 0.2
+    rpy: 0.0 0.0 3.1416       # 180° yaw → Facing backward
+    device_namespace: back_cam
+
+
+  - type: LDR20
+    name: lidar
+    parent_link: mount_link
+    xyz: 0.0 0.2 0.0
+    rpy: 0.0 0.0 0.0
+    device_namespace: lidar

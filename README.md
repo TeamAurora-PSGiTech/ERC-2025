@@ -16,6 +16,8 @@ Clone this repo into your ROS workspace:
 
 ```bash
 git clone https://github.com/TeamAurora-PSGiTech/ERC-2025.git
+cd ERC-2025
+git submodule update --init --recursive
 ```
 
 ### 2. Configure Environment
@@ -35,11 +37,11 @@ export HUSARION_ROS_BUILD_TYPE=simulation
 ### 3. Build
 
 ```bash
-vcs import . < husarion_ugv/${HUSARION_ROS_BUILD_TYPE}_deps.repos
+vcs import husarion_ugv_ros < husarion_ugv_ros/husarion_ugv/${HUSARION_ROS_BUILD_TYPE}_deps.repos
 
 sudo rosdep init
 rosdep update --rosdistro $ROS_DISTRO
-rosdep install --from-paths . -y -i
+rosdep install --from-paths husarion_ugv_ros -y -i
 
 colcon build --symlink-install --packages-up-to husarion_ugv --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
 
@@ -52,9 +54,10 @@ source install/setup.bash
 
 | Directory       | Description                            |
 |-----------------|----------------------------------------|
-| `/husarion_ugv_*` | Forked directories from upstream repo  |
+| `/husarion_ugv_ros` | Forked directories from upstream repo  |
 | `/models`       | Contains all the ML models used        |
 | `/autonomous` | Contains scripts and launch files for autonomous nav |
+| `/webui` | Contains webui interface |
 ---
 
 ## Autonomous Mode
@@ -66,7 +69,7 @@ colcon build --packages-select autonomous --symlink-install
 
 Step 1: Start simulation using the command
 ```bash
-ros2 launch husarion_ugv_gazebo simulation.launch.py use_rviz:=False
+ros2 launch autonomous simulation.launch.py use_rviz:=False
 ```
 
 Step 2: launch map and rviz with the command

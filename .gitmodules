@@ -1,3 +1,6 @@
 [submodule "husarion_ugv_ros"]
 	path = husarion_ugv_ros
 	url = https://github.com/husarion/husarion_ugv_ros.git
+[submodule "webui"]
+	path = webui
+	url = https://github.com/RisheekeshKG/WebUI-ERC-205.git
